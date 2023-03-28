@@ -8,11 +8,15 @@ import Home from "./Home";
 function App() {
   const [user, setUser] = useState(null);
 
+  console.log(user)
+  
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+      } else {
+        r.json().then(console.log)
       }
     });
   }, []);
